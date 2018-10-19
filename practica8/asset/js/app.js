@@ -29,12 +29,6 @@ var cont = 1;
 var bitacoras = [];
 var formulario = document.getElementById("bitacora");
 
-/*¿Qué contiene la variable formulario? Contiene un arreglo.*/
-
-/*¿Qué hace el método evt.preventDefault()? Determina si este método a sido llamado por algún otro evento encadenado a éste.*/
-
-/* ¿Qué es lo que contiene formulario[x]? Tiene un formulario con todos su atributos: La fecha, la descripción y la cantidad*/
-
 formulario.addEventListener("submit", (evt) => {
     evt.preventDefault();
     let bitacora = {
@@ -60,18 +54,14 @@ const crearElemento = (bitacora, tbody) =>{
     tbody.appendChild(tr); 
 }
 
-/*¿Qué contienen las variables tr y td ? Contienen nodos */
-/* ¿Qué contienen la variable content ? Un nodo de texto */
-/* ¿Qué valor tendra tbody al finalizar la iteración? Tendrá el texto ingresado */
-/* Describa en pocas palabras lo que realizara esta función: Creará un nodo de un elemento. */
+
 
 const eliminar= (tbody)=>{
     while (tbody.firstChild) {
         tbody.removeChild(tbody.firstChild);
     }
 }
-/* ¿Qué es lo que hace .firstChild? Hará énfasis en cada uno de los primeros hijos de un nodo. */
-/* Después de realizar el while ¿Comó quedara el elemento tbody ? Sin el primer hijo. */
+
 
 const agregar= ()=>{
     var eventtr = document.querySelectorAll(".click");
@@ -83,7 +73,7 @@ const agregar= ()=>{
      });
     })
    } 
-/* ¿Qué es lo que obtenemos cuando se ejecuta item.childNodes[i].textContent? Una colección de nodos hijos como un objeto lista de nodos. */
+
 
 const mostrar = ()=>{
     if (document.querySelector(".tabla-btc tbody").childElementCount > 0) {
@@ -95,8 +85,45 @@ const mostrar = ()=>{
     agregar();
    } 
 
-   /* ¿Qué es lo que obtenemos cuando se realiza document.querySelector(".tabla-btc tbody") ? Obtenemos el primer elemento que coincida con el valor que hemos puesto.*/
-   /*  ¿Qué hace el método childElementCount? Devuelve un número del tipo "unsigned long" que representa la cantidad de elementos hijo que penden del elemento padre.*/
-   /* ¿Qué se mostrará en pantalla cuando se ejecute la función agregar()? El elemento escrito en el formulario (fecha, descripción y cantidad) */
-   /*¿Qué se mostrara en el navegador después de ejecutar la función mostrar? Mostrará lo que haga la función agregar()*/
 
+/* Validaciones */
+ var fecha = document.getElementById("fecha");
+ var desc = document.getElementById("descp");
+ var horas = document.getElementById("cant");
+ var boton = document.getElementById("boton").disabled = true;
+ var booleano = true;
+ 
+ fecha.oninput = () =>{
+     var valor = fecha.value;
+     if(valor == "dd/mm/aaaa" || valor == null){
+         fecha.style.borderColor = "red";
+     }else{
+         fecha.style.borderColor = "green";
+     }
+ }
+
+ desc.oninput = () =>{
+    var valor = desc.value;
+    if(valor == "" || valor == null){
+        desc.style.borderColor = "red";
+    }else{
+        desc.style.borderColor = "green";
+    }
+}
+
+horas.oninput = () =>{
+    var valor = horas.value;
+    if(valor == "" || valor == null){
+        horas.style.borderColor = "red";
+    }else{
+        horas.style.borderColor = "green";
+    }
+}
+
+function validar(bol){
+    if(bol){
+        document.getElementById("boton").disabled = false;
+    }else{
+        document.getElementById("boton").disabled = true;
+    }
+}
