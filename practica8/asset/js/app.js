@@ -91,6 +91,9 @@ const mostrar = ()=>{
  var desc = document.getElementById("descp");
  var horas = document.getElementById("cant");
  var boton = document.getElementById("boton").disabled = true;
+if(boton){
+    document.getElementById("boton").style.backgroundColor = "gray";
+}
  var booleano = false;
  
  fecha.oninput = () =>{
@@ -101,6 +104,7 @@ const mostrar = ()=>{
          fecha.style.borderColor = "green";
          booleano = true;
          validar(booleano);
+         document.getElementById("boton").style.backgroundColor = "#003c71";
      }
  }
 
@@ -112,6 +116,7 @@ const mostrar = ()=>{
         desc.style.borderColor = "green";
         booleano = true;
         validar(booleano);
+        document.getElementById("boton").style.backgroundColor = "#003c71";
     }
 }
 
@@ -123,6 +128,7 @@ horas.oninput = () =>{
         horas.style.borderColor = "green";
         booleano = true;
         validar(booleano);
+        document.getElementById("boton").style.backgroundColor = "#003c71";
     }
 }
 
