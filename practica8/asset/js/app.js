@@ -91,7 +91,8 @@ const mostrar = ()=>{
  var desc = document.getElementById("descp");
  var horas = document.getElementById("cant");
  var boton = document.getElementById("boton").disabled = true;
-if(boton){
+
+ if(boton){
     document.getElementById("boton").style.backgroundColor = "gray";
 }
  var booleano = false;
