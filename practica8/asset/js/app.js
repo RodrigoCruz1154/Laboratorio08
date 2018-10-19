@@ -91,7 +91,7 @@ const mostrar = ()=>{
  var desc = document.getElementById("descp");
  var horas = document.getElementById("cant");
  var boton = document.getElementById("boton").disabled = true;
- var booleano = true;
+ var booleano = false;
  
  fecha.oninput = () =>{
      var valor = fecha.value;
@@ -99,6 +99,8 @@ const mostrar = ()=>{
          fecha.style.borderColor = "red";
      }else{
          fecha.style.borderColor = "green";
+         booleano = true;
+         validar(booleano);
      }
  }
 
@@ -108,6 +110,8 @@ const mostrar = ()=>{
         desc.style.borderColor = "red";
     }else{
         desc.style.borderColor = "green";
+        booleano = true;
+        validar(booleano);
     }
 }
 
@@ -117,11 +121,13 @@ horas.oninput = () =>{
         horas.style.borderColor = "red";
     }else{
         horas.style.borderColor = "green";
+        booleano = true;
+        validar(booleano);
     }
 }
 
 function validar(bol){
-    if(bol){
+    if(bol == true){
         document.getElementById("boton").disabled = false;
     }else{
         document.getElementById("boton").disabled = true;
